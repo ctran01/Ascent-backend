@@ -11,7 +11,7 @@ const getUserToken = (user) => {
     // Create the token.
     const token = jwt.sign(
         { userId: user.id},
-        secret
+        process.env.JWT_SECRET
     );
 
     return token;
