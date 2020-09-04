@@ -2,7 +2,8 @@ const express = require('express');
 const {requireAuth} = require('../middlewares/auth');
 const {asyncHandler} = require('../middlewares/utils');
 const {Area, User,Route,Follower} = require('../db/models');
-
+const { jwtConfig } = require("../config");
+const { secret, expiresIn } = jwtConfig;
 
 const router = express.Router();
 
@@ -26,8 +27,8 @@ router.get('/', asyncHandler(async(req,res,next)=>{
     ]
 
   })
-  
-  res.json({routes})
+  res.json({"message": secret})
+  // res.json({routes})
 }))
 
 

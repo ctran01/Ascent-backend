@@ -5,6 +5,8 @@ const username = db.username;
 const password = db.password;
 const database = db.database;
 const host = db.host;
+const jwt = config.jwt;
+const secret = jwt.secret
 
 module.exports = {
   development: {
@@ -16,6 +18,7 @@ module.exports = {
   },
   production:{
     dialect: "postgres",
-    use_env_variable: "DATABASE_URL"
+    use_env_variable: "DATABASE_URL",
+    secret
   }
 };
