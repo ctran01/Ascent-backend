@@ -27,7 +27,7 @@ router.get('/', asyncHandler(async(req,res,next)=>{
     ]
 
   })
-  res.json({"message": secret})
+  res.json({"message": process.env.JWT_SECRET})
   // res.json({routes})
 }))
 
