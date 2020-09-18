@@ -108,11 +108,11 @@ router.put('/user/:userid', asyncHandler(async(req,res,next)=>{
 
 
 //Edit User
-router.post('/user/:userid/update', asyncHandler(async(req,res,next)=>{
+router.put('/user/:userid/update', asyncHandler(async(req,res,next)=>{
     const userId = parseInt(req.params.userid,10)
-    const{username,email,image} = req.body
+    const{username,email,photo} = req.body
 
-    const user = await User.update({username: username, email:email, image_url: image},{
+    const user = await User.update({username: username, email:email, image_url: photo},{
         where:{
             id: userId
         }
